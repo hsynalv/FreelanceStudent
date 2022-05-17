@@ -13,9 +13,9 @@ namespace FreelanceStudent.Service.Mapper
     {
         public MapProfile()
         {
-            CreateMap<Advert, AdvertDto>();
-            CreateMap<Background, BackgroundDto>();
-            CreateMap<Category, CategoryDto>();
+            CreateMap<Advert, AdvertDto>().ReverseMap();
+            CreateMap<Background, BackgroundDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
         }
     }
 }

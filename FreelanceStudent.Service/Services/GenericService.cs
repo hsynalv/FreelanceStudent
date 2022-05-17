@@ -77,7 +77,7 @@ namespace FreelanceStudent.Service.Services
                 return CustomResponse<NoContent>.Fail("Id not found", 404);
             }
 
-            var updateEntity = ObjectMapper.Mapper.Map<TEntity>(isExistEntity);
+            var updateEntity = ObjectMapper.Mapper.Map<TEntity>(entity);
             _repositoryBase.Update(updateEntity);
             await _unitOfWork.CommitAsync();
             return CustomResponse<NoContent>.Success(204);
