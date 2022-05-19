@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceStudent.Service", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceStudent.API", "FreelanceStudent.API\FreelanceStudent.API.csproj", "{5527218E-C26A-46F3-878C-90EDF98F3D8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreelanceStudent.Entity", "FreelanceStudent.Entity\FreelanceStudent.Entity.csproj", "{06A09100-96ED-44F8-8102-8B00092CF0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceStudent.Entity", "FreelanceStudent.Entity\FreelanceStudent.Entity.csproj", "{06A09100-96ED-44F8-8102-8B00092CF0B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreelanceStudent.IdentityServer", "FreelanceStudent.IdentityServer\FreelanceStudent.IdentityServer.csproj", "{ACC65D9E-3C60-4EA6-A936-E87085F28BE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{06A09100-96ED-44F8-8102-8B00092CF0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06A09100-96ED-44F8-8102-8B00092CF0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06A09100-96ED-44F8-8102-8B00092CF0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC65D9E-3C60-4EA6-A936-E87085F28BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC65D9E-3C60-4EA6-A936-E87085F28BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC65D9E-3C60-4EA6-A936-E87085F28BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC65D9E-3C60-4EA6-A936-E87085F28BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
