@@ -1,3 +1,4 @@
+using FreelanceStudent.API.Extensions;
 using FreelanceStudent.Core.UnitOfWork;
 using FreelanceStudent.Data.Abstract;
 using FreelanceStudent.Data.EntityFramework.Repositories;
@@ -29,65 +30,11 @@ namespace FreelanceStudent.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
-
-            services.AddDbContext<AppDbContext>(sqloptions =>
-            {
-                sqloptions.UseSqlServer(Configuration.GetConnectionString("SqlConnection"), migrationOptions =>
-                {
-                    migrationOptions.MigrationsAssembly("FreelanceStudent.Data");
-                });
-            });
-
             services.AddAutoMapper(typeof(MapProfile));
-
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AddScoped<IAdvertDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfAdvertDal(context);
-            });
-            services.AddScoped<IBackgroundDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfBackgroundDal(context);
-            });;
-            services.AddScoped<ICategoryDal,EfCategoryDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfCategoryDal(context);
-            });;
-
-            services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfForeignLanguageDal(context);
-            }); ;
-
-            services.AddScoped<IProgrammingLanguageDal, EfProgrammingLanguageDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfProgrammingLanguageDal(context);
-            }); ;
-
-            services.AddScoped<IJobExperienceDal, EfJobExperienceDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfJobExperienceDal(context);
-            }); ;
-
-            services.AddScoped<IAdvertService,AdvertService>();
-            services.AddScoped<IBackgroundService, BackgroundService>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IForeignLanguageService, ForeignLanguageService>();
-            services.AddScoped<IProgrammingLanguageService, ProgrammingLanguageService>();
-            services.AddScoped<IJobExperienceService, JobExperienceService>();
-
-
-
-
+            services.ConfigureUnitOfWork();
+            services.ConfigureDalLayer();
+            services.ConfigureServiceLayer();
+            services.ConfigureSqlContext(Configuration);
 
 
             services.AddControllers();
