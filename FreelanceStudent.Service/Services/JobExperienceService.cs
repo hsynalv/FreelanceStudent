@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FreelanceStudent.Data.Abstract;
 
 namespace FreelanceStudent.Service.Services
 {
     public class JobExperienceService : GenericService<JobExperience, JobExperienceDto>
     {
-        public JobExperienceService(IRepositoryBase<JobExperience> repositoryBase, IUnitOfWork unitOfWork) : base(repositoryBase, unitOfWork)
+        public JobExperienceService(IJobExperienceDal jobExperienceDal, IUnitOfWork unitOfWork) : base(jobExperienceDal, unitOfWork)
         {
         }
     }

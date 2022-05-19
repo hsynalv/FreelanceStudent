@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FreelanceStudent.Data.Abstract;
 
 namespace FreelanceStudent.Service.Services
 {
     public class ProgrammingLanguageService : GenericService<ProgrammingLanguage, ProgrammingLanguageDto>
     {
-        public ProgrammingLanguageService(IRepositoryBase<ProgrammingLanguage> repositoryBase, IUnitOfWork unitOfWork) : base(repositoryBase, unitOfWork)
+        public ProgrammingLanguageService(IProgrammingLanguageDal programmingLanguageDal, IUnitOfWork unitOfWork) : base(programmingLanguageDal, unitOfWork)
         {
         }
     }
