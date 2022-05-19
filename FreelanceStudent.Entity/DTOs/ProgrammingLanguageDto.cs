@@ -8,7 +8,9 @@ namespace FreelanceStudent.Entity.DTOs
 {
     public class ProgrammingLanguageDto
     {
-        public int LanguageId { get; set; }
+        public int PLanguageId { get; set; }
+
+        public int BackgroundId { get; set; }
         public string Name { get; set; }
     }
 }

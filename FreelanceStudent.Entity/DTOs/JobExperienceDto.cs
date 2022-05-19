@@ -9,6 +9,8 @@ namespace FreelanceStudent.Entity.DTOs
     public class JobExperienceDto
     {
         public int Id { get; set; }
+
+        public int BackgroundId { get; set; }
         public string Title { get; set; }
         public string Detail { get; set; }
     }

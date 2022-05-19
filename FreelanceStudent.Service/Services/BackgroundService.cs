@@ -8,7 +8,7 @@ namespace FreelanceStudent.Service.Services
 {
     public class BackgroundService : GenericService<Background, BackgroundDto>, IBackgroundService
     {
-        public BackgroundService(IBackgroundDal backgorundDal, IUnitOfWork unitOfWork) : base(backgorundDal, unitOfWork)
+        public BackgroundService(IBackgroundDal backgroundDal, IUnitOfWork unitOfWork) : base(backgroundDal, unitOfWork)
         {
         }
     }

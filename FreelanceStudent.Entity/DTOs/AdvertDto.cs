@@ -9,6 +9,7 @@ namespace FreelanceStudent.Entity.DTOs
     public class AdvertDto
     {
         public int AdvertId { get; set; }
+        public int CategoryId { get; set; }
 
         public string Title { get; set; }
 
