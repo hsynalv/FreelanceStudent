@@ -22,6 +22,5 @@ namespace FreelanceStudent.Entity.Entities
 
         public int CategoryId { get; set; }
 
-
     }
 }

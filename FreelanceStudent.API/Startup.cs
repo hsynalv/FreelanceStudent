@@ -60,33 +60,9 @@ namespace FreelanceStudent.API
                 return new EfCategoryDal(context);
             });;
 
-            services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfForeignLanguageDal(context);
-            }); ;
-
-            services.AddScoped<IJobExperienceDal, EfJobExperienceDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfJobExperienceDal(context);
-            }); ;
-
-            services.AddScoped<IProgrammingLanguageDal, EfProgrammingLanguageDal>(sp =>
-            {
-                var context = sp.GetRequiredService<AppDbContext>();
-                return new EfProgrammingLanguageDal(context);
-            }); ;
-
             services.AddScoped<IAdvertService,AdvertService>();
             services.AddScoped<IBackgroundService, BackgroundService>();
             services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IForeignLanguageService, ForeignLanguageService>();
-            services.AddScoped<IJobExperienceService, JobExperienceService>();
-            services.AddScoped<IProgrammingLanguageService, ProgrammingLanguageService>();
-
-
-
 
 
 
