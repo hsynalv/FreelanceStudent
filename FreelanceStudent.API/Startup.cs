@@ -9,6 +9,7 @@ using FreelanceStudent.Service.Mapper;
 using FreelanceStudent.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,9 +36,13 @@ namespace FreelanceStudent.API
             services.ConfigureDalLayer();
             services.ConfigureServiceLayer();
             services.ConfigureSqlContext(Configuration);
+            services.ConfigureAuthentice();
 
 
-            services.AddControllers();
+            services.AddControllers(options => 
+            {
+                options.Filters.Add(new AuthorizeFilter());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FreelanceStudent.API", Version = "v1" });
@@ -59,7 +64,7 @@ namespace FreelanceStudent.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

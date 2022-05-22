@@ -9,15 +9,9 @@ namespace FreelanceStudent.IdentityServer
     {
         public static IEnumerable<ApiResource> GetApiResources => new ApiResource[]
         {
-            new ApiResource("resource_api1")
+            new ApiResource("resource_API")
             {
-                Scopes = {"api1.read", "api1.write", "api1.update" },
-                ApiSecrets = new[]{new Secret("secretApi1".Sha512())},  // Basic Auth Doğrulama için 
-            },
-            new ApiResource("resource_api2")
-            {
-                Scopes = {"api2.read", "api2.write", "api2.update" },
-                ApiSecrets = new[]{new Secret("secretApi2".Sha512())},  // Basic Auth Doğrulama için 
+                Scopes = {"API_full_permission" },
             },
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
@@ -26,9 +20,7 @@ namespace FreelanceStudent.IdentityServer
         {
             return new List<ApiScope>()
             {
-                new ApiScope("api1.read","API 1 için okuma izni"),
-                new ApiScope("api1.write","API 1 için write izni"),
-                new ApiScope("api1.update","API 1 için update izni"),
+                new ApiScope("API_full_permission","API için okuma izni"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
         }
@@ -53,7 +45,10 @@ namespace FreelanceStudent.IdentityServer
                     ClientName = "Client 1 web uygulaması",
                     ClientSecrets = new []{new Secret("Secret1".Sha512())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = { "api1.read" }
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.LocalApi.ScopeName,
+                    },
                 },
 
                 new Client
@@ -68,7 +63,7 @@ namespace FreelanceStudent.IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.OfflineAccess,
                         IdentityServerConstants.StandardScopes.Email,
-                        "api1.read",
+                        "API_full_permission",
                     },
                     RedirectUris= { "http://localhost:4200/callback" },
                     AllowedCorsOrigins = { "http://localhost:4200/" },
@@ -88,7 +83,7 @@ namespace FreelanceStudent.IdentityServer
                         IdentityServerConstants.StandardScopes.OfflineAccess,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.LocalApi.ScopeName,
-                        "api1.read",
+                        "API_full_permission",
                     },
                     AccessTokenLifetime = 2*60*60,
                     RefreshTokenUsage = TokenUsage.OneTimeOnly,

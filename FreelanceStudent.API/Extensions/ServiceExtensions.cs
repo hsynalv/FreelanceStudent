@@ -1,5 +1,4 @@
-﻿using System;
-using FreelanceStudent.Core.UnitOfWork;
+﻿using FreelanceStudent.Core.UnitOfWork;
 using FreelanceStudent.Data.Abstract;
 using FreelanceStudent.Data.EntityFramework.Repositories;
 using FreelanceStudent.Data.UnitOfWorks;
@@ -7,9 +6,9 @@ using FreelanceStudent.EntityFramework;
 using FreelanceStudent.Service.Abstract;
 using FreelanceStudent.Service.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace FreelanceStudent.API.Extensions
 {
@@ -77,6 +76,20 @@ namespace FreelanceStudent.API.Extensions
                 {
                     migrationOptions.MigrationsAssembly("FreelanceStudent.Data");
                 });
+            });
+        }
+
+        public static void ConfigureAuthentice(this IServiceCollection services)
+        {
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://localhost:5001";
+                options.Audience = "resource_API";
+                options.RequireHttpsMetadata = false;
             });
         }
     }
