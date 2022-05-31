@@ -14,12 +14,6 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
             builder.HasOne(x => x.Student)
                 .WithOne(s => s.Background)
                 .HasForeignKey<Student>(bg => bg.UserId);
-
-            builder.HasData(new Background
-            {
-                BackgroundId = 1,
-                Department = "Software Engineer",
-            });
         }
     }
 }

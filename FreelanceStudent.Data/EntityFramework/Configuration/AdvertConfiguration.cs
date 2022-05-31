@@ -29,17 +29,6 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
                 .WithMany(x => x.Adverts)
                 .HasForeignKey(x => x.UserId);
 
-            builder.HasData(new Advert
-            {
-                AdvertId = 1,
-                CategoryId = 1,
-                Price = 100,
-                CreatedTime = DateTime.Now,
-                Title = "Freelance Student",
-                Detail = "Ders için bir proje",
-                IsActivated = true,
-                Deadline = DateTime.Now + TimeSpan.FromDays(5),
-            });
         }
     }
 }
