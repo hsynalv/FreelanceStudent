@@ -27,5 +27,9 @@ namespace FreelanceStudent.EntityFramework
         public DbSet<JobExperience> JobExperiences { get; set; }
         public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
         public DbSet<ForeignLanguage> ForeignLanguages { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Employer> Employers { get; set; }
+
     }
 }

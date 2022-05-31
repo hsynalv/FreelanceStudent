@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FreelanceStudent.IdentityServer.Migrations
 {
-    public partial class forIdentityServer : Migration
+    public partial class forIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -27,28 +27,46 @@ namespace FreelanceStudent.API.Extensions
                 var context = sp.GetRequiredService<AppDbContext>();
                 return new EfBackgroundDal(context);
             });;
-            services.AddScoped<ICategoryDal,EfCategoryDal>(sp =>
+            services.AddScoped<ICategoryDal>(sp =>
             {
                 var context = sp.GetRequiredService<AppDbContext>();
                 return new EfCategoryDal(context);
             });;
 
-            services.AddScoped<IForeignLanguageDal, EfForeignLanguageDal>(sp =>
+            services.AddScoped<IForeignLanguageDal>(sp =>
             {
                 var context = sp.GetRequiredService<AppDbContext>();
                 return new EfForeignLanguageDal(context);
             }); ;
 
-            services.AddScoped<IProgrammingLanguageDal, EfProgrammingLanguageDal>(sp =>
+            services.AddScoped<IProgrammingLanguageDal>(sp =>
             {
                 var context = sp.GetRequiredService<AppDbContext>();
                 return new EfProgrammingLanguageDal(context);
             });
 
-            services.AddScoped<IJobExperienceDal, EfJobExperienceDal>(sp =>
+            services.AddScoped<IJobExperienceDal>(sp =>
             {
                 var context = sp.GetRequiredService<AppDbContext>();
                 return new EfJobExperienceDal(context);
+            });
+
+            services.AddScoped<IUserDal>(sp =>
+            {
+                var context = sp.GetRequiredService<AppDbContext>();
+                return new EfUserDal(context);
+            });
+
+            services.AddScoped<IEmployerDal>(sp =>
+            {
+                var context = sp.GetRequiredService<AppDbContext>();
+                return new EfEmployerDal(context);
+            });
+
+            services.AddScoped<IStudentDal>(sp =>
+            {
+                var context = sp.GetRequiredService<AppDbContext>();
+                return new EfStudentDal(context);
             });
         }
 
@@ -60,6 +78,9 @@ namespace FreelanceStudent.API.Extensions
             services.AddScoped<IForeignLanguageService, ForeignLanguageService>();
             services.AddScoped<IProgrammingLanguageService, ProgrammingLanguageService>();
             services.AddScoped<IJobExperienceService, JobExperienceService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IEmployerService, EmployerService>();
 
         }
 

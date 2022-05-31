@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using FreelanceStudent.IdentityServer.Models;
-using IdentityModel;
 using IdentityServer4.Validation;
+using IdentityModel;
 using Microsoft.AspNetCore.Identity;
 
 namespace FreelanceStudent.IdentityServer.Services

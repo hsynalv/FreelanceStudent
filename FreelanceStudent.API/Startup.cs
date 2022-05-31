@@ -39,6 +39,8 @@ namespace FreelanceStudent.API
             services.ConfigureAuthentice();
 
 
+
+
             services.AddControllers(options => 
             {
                 options.Filters.Add(new AuthorizeFilter());

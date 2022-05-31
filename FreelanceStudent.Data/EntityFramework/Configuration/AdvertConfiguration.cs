@@ -25,6 +25,10 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
                 .WithMany(x=>x.Adverts)
                 .HasForeignKey(x=>x.CategoryId);
 
+            builder.HasOne(x => x.User)
+                .WithMany(x => x.Adverts)
+                .HasForeignKey(x => x.UserId);
+
             builder.HasData(new Advert
             {
                 AdvertId = 1,
