@@ -15,22 +15,22 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
         {
             builder.HasKey(x => x.UserId);
 
-            //builder.Property(x => x.FirstName)
-            //    .IsRequired().HasMaxLength(60);
-            
-            //builder.Property(x => x.LastName)
-            //    .IsRequired().HasMaxLength(60);
+            builder.Property(x => x.FirstName)
+                .IsRequired().HasMaxLength(60);
 
-            //builder.Property(x => x.Email)
-            //    .IsRequired();
+            builder.Property(x => x.LastName)
+                .IsRequired().HasMaxLength(60);
 
-            //builder.Property(x => x.Password)
-            //    .IsRequired();
-            
-            //builder.Property(x => x.PhoneNumber)
-            //    .IsRequired();
+            builder.Property(x => x.Email)
+                .IsRequired();
 
-            //builder.Property(x => x.ImageUrl);
+            builder.Property(x => x.Password)
+                .IsRequired();
+
+            builder.Property(x => x.PhoneNumber)
+                .IsRequired();
+
+            builder.Property(x => x.ImageUrl);
         }
     }
 }

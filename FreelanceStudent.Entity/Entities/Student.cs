@@ -8,7 +8,6 @@ namespace FreelanceStudent.Entity.Entities
 {
     public class Student : User
     {
-        public int StudentId { get; set; }
         public string NationalityId { get; set; }
         public DateTime DateOfBirth { get; set; }
 

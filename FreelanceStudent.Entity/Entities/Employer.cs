@@ -8,7 +8,6 @@ namespace FreelanceStudent.Entity.Entities
 {
     public class Employer : User
     {
-        public int EmployerId { get; set; }
         public string WebSite { get; set; }
     
     }

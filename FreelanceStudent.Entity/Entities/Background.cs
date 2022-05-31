@@ -27,7 +27,7 @@ namespace FreelanceStudent.Entity.Entities
 
         public IEnumerable<ProgrammingLanguage> ProgrammingLanguages { get; set; }
 
-        public int StudentId { get; set; }
+        public int UserId { get; set; }
         public Student Student { get; set; }
     }
 }

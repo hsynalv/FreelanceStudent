@@ -13,13 +13,14 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Student> builder)
         {
-            builder.HasKey(x => x.StudentId);
-           
-            //builder.Property(x => x.NationalityId)
-            //    .IsRequired();
-            
-            //builder.Property(x => x.DateOfBirth)
-            //    .IsRequired();
+
+
+
+            builder.Property(x => x.NationalityId)
+                .IsRequired();
+
+            builder.Property(x => x.DateOfBirth)
+                .IsRequired();
         }
     }
 }

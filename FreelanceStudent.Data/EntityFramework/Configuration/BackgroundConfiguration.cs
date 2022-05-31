@@ -11,10 +11,9 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
         {
             builder.HasKey(x => x.BackgroundId);
 
-            builder.HasOne(x=>x.Student)
-                .WithOne(x=>x.Background)
-                .HasForeignKey<Background>(b=>b.StudentId)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.HasOne(x => x.Student)
+                .WithOne(s => s.Background)
+                .HasForeignKey<Student>(bg => bg.UserId);
 
             builder.HasData(new Background
             {

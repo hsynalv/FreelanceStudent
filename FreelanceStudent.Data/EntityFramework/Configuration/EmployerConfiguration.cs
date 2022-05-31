@@ -13,11 +13,10 @@ namespace FreelanceStudent.Data.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Employer> builder)
         {
-            builder.HasKey(x => x.EmployerId);
 
-            //builder.Property(x => x.WebSite)
-            //    .HasDefaultValue("none");
-            
+            builder.Property(x => x.WebSite)
+                .HasDefaultValue("none");
+
         }
     }
 }
